@@ -1,5 +1,5 @@
 node_modules
-dist/
+dist
 dist-demo/
 .DS_Store
 reports
