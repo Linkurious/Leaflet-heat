@@ -27,7 +27,7 @@ class HeatLayer extends L.Layer {
   private _canvas: HTMLCanvasElement | null = null;
   private _heat: SimpleHeat | null = null;
   private _frame: number | null = null;
-  options: HeatLayerOptions = {
+  public options: HeatLayerOptions = {
     pane: "overlayPane",
     minOpacity: 0.05,
     maxZoom: 18,

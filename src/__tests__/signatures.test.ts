@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import "./setup";
+import { map as createMap } from "leaflet";
 import HeatLayer from "../HeatLayer";
 
 describe("Class Signatures", () => {
@@ -33,6 +33,17 @@ describe("Class Signatures", () => {
       expect((layer as any)._latlngs).toBeDefined();
       expect((layer as any)._heat).toBeDefined();
       expect((layer as any)._frame).toBeDefined();
+    });
+
+    it("should be detectable as an overlay", () => {
+      const layer = new HeatLayer([]);
+
+      const map = createMap("map");
+      map.addLayer(layer);
+      map.setView([0, 0], 1);
+
+      expect(layer.getPane() === map.getPane("overlayPane")).toBe(true);
+      expect(layer.getContainer().tagName).toBe("CANVAS");
     });
   });
 });

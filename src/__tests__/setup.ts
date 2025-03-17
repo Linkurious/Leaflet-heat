@@ -5,6 +5,14 @@ const mockCanvas = {
     fillRect: () => {},
     clearRect: () => {},
     beginPath: () => {},
+    closePath: () => {},
+    createLinearGradient: () => ({
+      addColorStop: () => {},
+    }),
+    getImageData: () => ({
+      data: new Uint8ClampedArray(0),
+    }),
+    putImageData: () => {},
     moveTo: () => {},
     lineTo: () => {},
     stroke: () => {},
@@ -27,14 +35,55 @@ const mockCanvas = {
   style: {},
 };
 
+const mockElement = (tagName: string) => {
+  return {
+    style: {
+      transform: "",
+      WebkitTransform: "",
+      msTransform: "",
+      transformOrigin: "",
+      WebkitTransformOrigin: "",
+      msTransformOrigin: "",
+      position: "",
+      left: "",
+      top: "",
+      width: "",
+      height: "",
+    },
+    appendChild: (child: any) => {},
+    insertBefore: (child: any, ref: any) => {},
+    removeChild: (child: any) => {},
+    className: "",
+    addEventListener: (type: string, listener: Function) => {},
+    removeEventListener: (type: string, listener: Function) => {},
+    getElementById: (id: string) => mockElement(id),
+    getAttribute: (attr: string) => "",
+    setAttribute: (attr: string, value: string) => {},
+    removeAttribute: (attr: string) => {},
+    getBoundingClientRect: () => ({
+      width: 0,
+      height: 0,
+    }),
+    scrollTop: 0,
+    scrollLeft: 0,
+    scrollWidth: 0,
+    scrollHeight: 0,
+  };
+};
+
 // Mock document
 const mockDocument = {
   createElement: (tagName: string) => {
+    const element = mockElement(tagName);
     if (tagName === "canvas") {
-      return mockCanvas;
+      // @ts-expect-error mockCanvas is a mock
+      element.getContext = mockCanvas.getContext;
+      // @ts-expect-error mockCanvas is a mock
+      element.tagName = "CANVAS";
     }
-    return {};
+    return element;
   },
+  getElementById: (id: string) => mockElement("div"),
   documentElement: {
     style: {
       transform: "",
@@ -51,6 +100,8 @@ const mockDocument = {
 const mockWindow = {
   document: mockDocument,
   devicePixelRatio: 1,
+  addEventListener: (type: string, listener: Function) => {},
+  removeEventListener: (type: string, listener: Function) => {},
 };
 
 // Replace global objects with mocks
