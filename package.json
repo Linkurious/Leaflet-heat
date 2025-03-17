@@ -11,7 +11,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "vitest",
+    "test:unit": "vitest run",
     "build": "vite build",
     "dev": "vite",
     "demo:dev": "vite demo",
