@@ -3,9 +3,10 @@
   "version": "0.2.0",
   "description": "A tiny and fast Leaflet heatmap plugin",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/leaflet-heat.js",
+  "browser": "dist/leaflet-heat.js",
+  "module": "dist/leaflet-heat.mjs",
+  "types": "dist/HeatLayer.d.ts",
   "files": [
     "dist"
   ],
