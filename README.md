@@ -82,7 +82,12 @@ npm run demo:preview
 
 ## License
 
-ISC
+This project is dual-licensed:
+
+1. The original Leaflet.heat code (up to version 0.2.0) is licensed under the [MIT License](https://github.com/Leaflet/Leaflet.heat/blob/master/LICENSE).
+2. All changes and improvements made by Linkurious are licensed under the [Apache 2.0 License](LICENSE).
+
+These licenses are compatible with each other, and you can use this software under either license. The Apache 2.0 License provides additional patent protection compared to the MIT License.
 
 ## Demos
 
