@@ -11,7 +11,7 @@ A tiny and fast Leaflet heatmap plugin. This is a fork of the original [Leaflet.
 ## Installation
 
 ```bash
-npm install @linkurious/leaflet.heat
+npm install @linkurious/leaflet-heat
 ```
 
 ## Usage
