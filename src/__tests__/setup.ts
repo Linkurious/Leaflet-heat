@@ -91,31 +91,35 @@ const mockDocument = {
   },
 };
 
+const mockNavigator = {
+  userAgent:
+    "Mozilla/5.0 (Test Browser) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+  platform: "MacIntel",
+  maxTouchPoints: 0,
+  hardwareConcurrency: 8,
+  language: "en-US",
+  languages: ["en-US", "en"],
+  webdriver: false,
+  onLine: true,
+  cookieEnabled: true,
+  doNotTrack: null,
+  geolocation: {
+    getCurrentPosition: () => {},
+    watchPosition: () => {},
+    clearWatch: () => {},
+  },
+};
+
 // Mock window
 const mockWindow = {
   document: mockDocument,
   devicePixelRatio: 1,
   addEventListener: (type: string, listener: Function) => {},
   removeEventListener: (type: string, listener: Function) => {},
-  navigator: {
-    userAgent:
-      "Mozilla/5.0 (Test Browser) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
-    platform: "MacIntel",
-    maxTouchPoints: 0,
-    hardwareConcurrency: 8,
-    language: "en-US",
-    languages: ["en-US", "en"],
-    webdriver: false,
-    onLine: true,
-    cookieEnabled: true,
-    doNotTrack: null,
-    geolocation: {
-      getCurrentPosition: () => {},
-      watchPosition: () => {},
-      clearWatch: () => {},
-    },
-  },
+  navigator: mockNavigator,
 };
+
+console.log(global.navigator, globalThis.navigator);
 
 // Replace global objects with mocks
 (global as any).window = mockWindow;
