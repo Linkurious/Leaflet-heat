@@ -17,7 +17,8 @@
     "demo:dev": "vite demo",
     "demo:build": "vite build demo",
     "demo:preview": "vite preview demo",
-    "deploy": "npm run demo:build && gh-pages -t --nojekyll -d dist/demo"
+    "deploy": "npm run demo:build && gh-pages -t --nojekyll -d dist/demo",
+    "postversion": "sync_versions"
   },
   "keywords": [
     "leaflet",
@@ -30,6 +31,7 @@
   "author": "Vladimir Agafonkin",
   "license": "ISC",
   "devDependencies": {
+    "@linkurious/code-tools": "^0.0.15",
     "@types/leaflet": "^1.9.8",
     "@types/node": "^20.11.24",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
