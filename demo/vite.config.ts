@@ -8,7 +8,8 @@ const __dirname = dirname(__filename);
 export default defineConfig({
   root: "demo",
   build: {
-    outDir: "../dist-demo",
+    target: "esnext",
+    outDir: "../dist/demo",
     emptyOutDir: true,
     rollupOptions: {
       input: {

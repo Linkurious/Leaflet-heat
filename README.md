@@ -18,7 +18,7 @@ npm install @linkurious/leaflet.heat
 
 ```typescript
 import L from "leaflet";
-import { heatLayer } from "@linkurious/leaflet.heat";
+import { heatLayer } from "@linkurious/leaflet-heat";
 
 const map = L.map("map").setView([0, 0], 2);
 
