@@ -124,6 +124,6 @@ console.log(global.navigator, globalThis.navigator);
 // Replace global objects with mocks
 (global as any).window = mockWindow;
 (global as any).document = mockDocument;
-if (typeof navigator !== "undefined") {
+if (typeof navigator === "undefined") {
   globalThis.navigator = mockNavigator;
 }
