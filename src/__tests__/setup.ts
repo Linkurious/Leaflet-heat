@@ -1,39 +1,34 @@
 // Mock canvas and its context
-const mockCanvas = {
-  getContext: () => ({
-    // Add any canvas context methods you need
-    fillRect: () => {},
-    clearRect: () => {},
-    beginPath: () => {},
-    closePath: () => {},
-    createLinearGradient: () => ({
-      addColorStop: () => {},
-    }),
-    getImageData: () => ({
-      data: new Uint8ClampedArray(0),
-    }),
-    putImageData: () => {},
-    moveTo: () => {},
-    lineTo: () => {},
-    stroke: () => {},
-    fill: () => {},
-    arc: () => {},
-    save: () => {},
-    restore: () => {},
-    translate: () => {},
-    scale: () => {},
-    rotate: () => {},
-    fillStyle: "",
-    strokeStyle: "",
-    lineWidth: 0,
-    width: 0,
-    height: 0,
-    style: {},
+const getContext = () => ({
+  // Add any canvas context methods you need
+  fillRect: () => {},
+  clearRect: () => {},
+  beginPath: () => {},
+  closePath: () => {},
+  createLinearGradient: () => ({
+    addColorStop: () => {},
   }),
+  getImageData: () => ({
+    data: new Uint8ClampedArray(0),
+  }),
+  putImageData: () => {},
+  moveTo: () => {},
+  lineTo: () => {},
+  stroke: () => {},
+  fill: () => {},
+  arc: () => {},
+  save: () => {},
+  restore: () => {},
+  translate: () => {},
+  scale: () => {},
+  rotate: () => {},
+  fillStyle: "",
+  strokeStyle: "",
+  lineWidth: 0,
   width: 0,
   height: 0,
   style: {},
-};
+});
 
 const mockElement = (tagName: string) => {
   return {
@@ -77,7 +72,7 @@ const mockDocument = {
     const element = mockElement(tagName);
     if (tagName === "canvas") {
       // @ts-expect-error mockCanvas is a mock
-      element.getContext = mockCanvas.getContext;
+      element.getContext = getContext;
       // @ts-expect-error mockCanvas is a mock
       element.tagName = "CANVAS";
     }
@@ -102,6 +97,24 @@ const mockWindow = {
   devicePixelRatio: 1,
   addEventListener: (type: string, listener: Function) => {},
   removeEventListener: (type: string, listener: Function) => {},
+  navigator: {
+    userAgent:
+      "Mozilla/5.0 (Test Browser) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+    platform: "MacIntel",
+    maxTouchPoints: 0,
+    hardwareConcurrency: 8,
+    language: "en-US",
+    languages: ["en-US", "en"],
+    webdriver: false,
+    onLine: true,
+    cookieEnabled: true,
+    doNotTrack: null,
+    geolocation: {
+      getCurrentPosition: () => {},
+      watchPosition: () => {},
+      clearWatch: () => {},
+    },
+  },
 };
 
 // Replace global objects with mocks
