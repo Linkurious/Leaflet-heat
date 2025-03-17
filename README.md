@@ -1,16 +1,93 @@
-Leaflet.heat
-==========
+# Leaflet.heat
 
-A tiny, simple and fast [Leaflet](http://leafletjs.com) heatmap plugin.
-Uses [simpleheat](https://github.com/mourner/simpleheat) under the hood,
-additionally clustering points into a grid for performance.
+A tiny and fast Leaflet heatmap plugin. This is a fork of the original [Leaflet.heat](https://github.com/Leaflet/Leaflet.heat) with modern improvements:
 
+- Written in TypeScript
+- ESM (ECMAScript Modules) support
+- Modern build tooling with Vite
+- Type definitions included
+- Better tree-shaking support
+
+## Installation
+
+```bash
+npm install @linkurious/leaflet.heat
+```
+
+## Usage
+
+```typescript
+import L from "leaflet";
+import { heatLayer } from "@linkurious/leaflet.heat";
+
+const map = L.map("map").setView([0, 0], 2);
+
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution:
+    '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+const points = [
+  [50.5, 30.5, "0.8"], // lat, lng, intensity
+  [50.6, 30.4, "0.5"],
+  [50.3, 30.6, "0.2"],
+];
+
+const heat = heatLayer(points).addTo(map);
+```
+
+## API
+
+### heatLayer(points, options?)
+
+Creates a heatmap layer given an array of points and an optional options object.
+
+#### Points
+
+An array of `[lat, lng, intensity]` or `[lat, lng]` arrays. The intensity should be a number between 0 and 1.
+
+#### Options
+
+| Option          | Type    | Default | Description                                                        |
+| --------------- | ------- | ------- | ------------------------------------------------------------------ |
+| radius          | number  | 25      | The radius of each "point" of the heatmap.                         |
+| blur            | number  | 15      | The amount of blur.                                                |
+| maxZoom         | number  | 10      | The maximum zoom level up to which the heatmap should be rendered. |
+| max             | number  | 1.0     | The maximum intensity of the heatmap.                              |
+| gradient        | object  | null    | Color gradient config.                                             |
+| minOpacity      | number  | 0.05    | The minimum opacity the heat will start at.                        |
+| useLocalExtrema | boolean | false   | Whether to use the local extremes of the data.                     |
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Build the library
+npm run build
+
+# Run the demo in development mode
+npm run demo:dev
+
+# Build the demo
+npm run demo:build
+
+# Preview the built demo
+npm run demo:preview
+```
+
+## License
+
+ISC
 
 ## Demos
 
 - [10,000 points &rarr;](http://leaflet.github.io/Leaflet.heat/demo)
 - [Adding points dynamically &rarr;](http://leaflet.github.io/Leaflet.heat/demo/draw.html)
-
 
 ## Basic Usage
 
@@ -29,15 +106,16 @@ To include the plugin, just use `leaflet-heat.js` from the `dist` folder:
 ```
 
 ## Building
-To build the dist files run:
-```npm install && npm run prepublish```
 
+To build the dist files run:
+`npm install && npm run prepublish`
 
 ## Reference
 
 #### L.heatLayer(latlngs, options)
 
 Constructs a heatmap layer given an array of points and an object with the following options:
+
 - **minOpacity** - the minimum opacity the heat will start at
 - **maxZoom** - zoom level where the points reach maximum intensity (as intensity scales with zoom),
   equals `maxZoom` of the map by default
@@ -52,7 +130,6 @@ or a [Leaflet LatLng object](http://leafletjs.com/reference.html#latlng).
 
 Optional third argument in each `LatLng` point (`altitude`) represents point intensity.
 Unless `max` option is specified, intensity should range between `0.0` and `1.0`.
-
 
 #### Methods
 
@@ -92,4 +169,3 @@ Unless `max` option is specified, intensity should range between `0.0` and `1.0`
 #### 0.0.1 &mdash; Jan 31, 2014
 
 - Initial release.
-
