@@ -9,12 +9,11 @@ export default defineConfig({
       fileName: (format) => `leaflet-heat.${format === "es" ? "mjs" : "js"}`,
     },
     rollupOptions: {
-      external: ["leaflet", "simpleheat"],
+      external: ["leaflet"],
       output: {
         exports: "named",
         globals: {
           leaflet: "L",
-          simpleheat: "simpleheat",
         },
       },
     },

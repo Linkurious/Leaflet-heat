@@ -1,8 +1,8 @@
 {
-  "name": "leaflet.heat",
+  "name": "@linkurious/leaflet-heat",
   "version": "0.2.0",
   "description": "A tiny and fast Leaflet heatmap plugin.",
-  "homepage": "https://github.com/Leaflet/Leaflet.heat",
+  "homepage": "https://github.com/Linkurious/Leaflet.heat",
   "keywords": [
     "heatmap",
     "canvas",
@@ -14,7 +14,7 @@
   "author": "Vladimir Agafonkin",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Leaflet/Leaflet.heat.git"
+    "url": "git://github.com/Linkurious/Leaflet.heat.git"
   },
   "main": "dist/leaflet-heat.js",
   "module": "dist/leaflet-heat.mjs",
