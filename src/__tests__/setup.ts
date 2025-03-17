@@ -125,5 +125,6 @@ console.log(global.navigator, globalThis.navigator);
 (global as any).window = mockWindow;
 (global as any).document = mockDocument;
 if (typeof navigator === "undefined") {
+  // @ts-expect-error mockNavigator is a mock on different environments
   globalThis.navigator = mockNavigator;
 }
