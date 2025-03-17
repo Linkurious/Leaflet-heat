@@ -91,8 +91,8 @@ These licenses are compatible with each other, and you can use this software und
 
 ## Demos
 
-- [10,000 points &rarr;](http://leaflet.github.io/Leaflet.heat/demo)
-- [Adding points dynamically &rarr;](http://leaflet.github.io/Leaflet.heat/demo/draw.html)
+- [10,000 points &rarr;](http://linkurious.github.io/Leaflet-heat/)
+- [Adding points dynamically &rarr;](http://linkurious.github.io/Leaflet-heat/draw.html)
 
 ## Basic Usage
 
