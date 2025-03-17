@@ -36,3 +36,8 @@ map.on({
     }
   },
 });
+
+Object.assign(window, {
+  map,
+  heat,
+});
