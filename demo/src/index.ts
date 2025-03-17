@@ -20,3 +20,6 @@ const addressPoints = eval(text.replace("var addressPoints = ", ""));
 
 const points = addressPoints.map((p) => [p[0], p[1]]);
 const heat = heatLayer(points).addTo(map);
+
+window.heat = heat;
+window.map = map;

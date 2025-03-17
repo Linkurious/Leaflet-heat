@@ -28,6 +28,7 @@ class HeatLayer extends L.Layer {
   private _heat: SimpleHeat | null = null;
   private _frame: number | null = null;
   options: HeatLayerOptions = {
+    pane: "overlayPane",
     minOpacity: 0.05,
     maxZoom: 18,
     radius: 25,
@@ -69,6 +70,10 @@ class HeatLayer extends L.Layer {
       this._frame = L.Util.requestAnimFrame(this._redraw, this);
     }
     return this;
+  }
+
+  getContainer() {
+    return this._canvas!;
   }
 
   onAdd(map: L.Map): this {
