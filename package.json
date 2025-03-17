@@ -1,6 +1,6 @@
 {
   "name": "@linkurious/leaflet-heat",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A tiny and fast Leaflet heatmap plugin",
   "type": "module",
   "main": "dist/leaflet-heat.js",
