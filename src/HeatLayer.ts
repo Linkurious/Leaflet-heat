@@ -76,6 +76,10 @@ class HeatLayer extends L.Layer {
     return this._canvas!;
   }
 
+  getElement() {
+    return this._canvas!;
+  }
+
   onAdd(map: L.Map): this {
     this._map = map;
 
