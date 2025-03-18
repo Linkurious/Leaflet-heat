@@ -44,6 +44,7 @@ describe("Class Signatures", () => {
 
       expect(layer.getPane() === map.getPane("overlayPane")).toBe(true);
       expect(layer.getContainer().tagName).toBe("CANVAS");
+      expect(layer.getElement().tagName).toBe("CANVAS");
     });
   });
 });
