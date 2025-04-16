@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { map as createMap } from "leaflet";
+import { map as createMap, Layer } from "leaflet";
 import HeatLayer from "../HeatLayer";
 
 describe("Class Signatures", () => {
@@ -43,6 +43,7 @@ describe("Class Signatures", () => {
       map.setView([0, 0], 1);
 
       expect(layer.getPane() === map.getPane("overlayPane")).toBe(true);
+      expect(layer).toBeInstanceOf(Layer);
       expect(layer.getContainer().tagName).toBe("CANVAS");
       expect(layer.getElement().tagName).toBe("CANVAS");
     });

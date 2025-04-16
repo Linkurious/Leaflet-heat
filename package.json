@@ -1,12 +1,19 @@
 {
   "name": "@linkurious/leaflet-heat",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A tiny and fast Leaflet heatmap plugin",
   "type": "module",
   "main": "dist/leaflet-heat.js",
   "browser": "dist/leaflet-heat.js",
   "module": "dist/leaflet-heat.mjs",
   "types": "dist/HeatLayer.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/leaflet-heat.mjs",
+      "require": "./dist/leaflet-heat.js",
+      "types": "./dist/HeatLayer.d.ts"
+    }
+  },
   "files": [
     "dist"
   ],
