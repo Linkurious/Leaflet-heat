@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest";
 import { map as createMap, Layer } from "leaflet";
+import { describe, it, expect } from "vitest";
 import HeatLayer from "../HeatLayer";
 
 describe("Class Signatures", () => {
@@ -17,22 +17,27 @@ describe("Class Signatures", () => {
       // Check protected methods
       const protectedMethods = ["_redraw", "_animateZoom"];
 
+      const castLayer = layer as unknown as Record<string, unknown> & {
+        _latlngs: unknown;
+        _heat: unknown;
+        _frame: unknown;
+      };
       protectedMethods.forEach((method) => {
-        expect(typeof (layer as any)[method]).toBe("function");
+        expect(typeof castLayer[method]).toBe("function");
       });
 
       // Check private methods
       const privateMethods = ["_updateOptions"];
 
       privateMethods.forEach((method) => {
-        expect(typeof (layer as any)[method]).toBe("function");
+        expect(typeof castLayer[method]).toBe("function");
       });
 
       // Check properties
       expect(layer.options).toBeDefined();
-      expect((layer as any)._latlngs).toBeDefined();
-      expect((layer as any)._heat).toBeDefined();
-      expect((layer as any)._frame).toBeDefined();
+      expect(castLayer._latlngs).toBeDefined();
+      expect(castLayer._heat).toBeDefined();
+      expect(castLayer._frame).toBeDefined();
     });
 
     it("should be detectable as an overlay", () => {

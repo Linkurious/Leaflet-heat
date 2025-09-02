@@ -1,5 +1,5 @@
+import { heatLayer } from "../../src/HeatLayer";
 import L from "leaflet";
-import { heatLayer } from "@src/HeatLayer";
 
 import "leaflet/dist/leaflet.css";
 import "./style.css";
