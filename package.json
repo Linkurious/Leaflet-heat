@@ -1,6 +1,6 @@
 {
   "name": "@linkurious/leaflet-heat",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "A tiny and fast Leaflet heatmap plugin",
   "type": "module",
   "main": "dist/leaflet-heat.js",
@@ -42,20 +42,18 @@
   "license": "ISC",
   "devDependencies": {
     "@linkurious/code-tools": "^0.0.15",
+    "@linkurious/eslint-config-ogma": "1.0.14",
     "@types/leaflet": "^1.9.8",
     "@types/node": "^20.11.24",
-    "@typescript-eslint/eslint-plugin": "^7.1.1",
-    "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-vue": "^5.0.4",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
     "gh-pages": "^6.1.1",
-    "prettier": "^3.2.5",
     "typescript": "^5.3.3",
     "vite": "^5.1.4",
     "vite-plugin-dts": "^3.7.3",
     "vitest": "^1.3.1"
+  },
+  "eslintConfig": {
+    "extends": "@linkurious/eslint-config-ogma"
   },
   "peerDependencies": {
     "leaflet": "^1.9.0"
