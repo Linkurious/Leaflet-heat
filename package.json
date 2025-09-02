@@ -29,7 +29,8 @@
     "demo:build": "vite build demo",
     "demo:preview": "vite preview demo",
     "deploy": "npm run demo:build && gh-pages -t --nojekyll -d dist/demo",
-    "postversion": "sync_versions"
+    "postversion": "sync_versions",
+    "bump:patch": "npm version --no-git-tag-version patch"
   },
   "keywords": [
     "leaflet",
