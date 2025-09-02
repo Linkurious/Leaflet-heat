@@ -30,7 +30,7 @@ const getContext = () => ({
   style: {},
 });
 
-const mockElement = (tagName: string) => {
+const mockElement = (_tagName: string) => {
   return {
     style: {
       transform: "",
@@ -45,16 +45,16 @@ const mockElement = (tagName: string) => {
       width: "",
       height: "",
     },
-    appendChild: (child: any) => {},
-    insertBefore: (child: any, ref: any) => {},
-    removeChild: (child: any) => {},
+    appendChild: (_child: unknown) => {},
+    insertBefore: (_child: unknown, _ref: unknown) => {},
+    removeChild: (_child: unknown) => {},
     className: "",
-    addEventListener: (type: string, listener: Function) => {},
-    removeEventListener: (type: string, listener: Function) => {},
+    addEventListener: (_type: string, _listener: unknown) => {},
+    removeEventListener: (_type: string, _listener: unknown) => {},
     getElementById: (id: string) => mockElement(id),
-    getAttribute: (attr: string) => "",
-    setAttribute: (attr: string, value: string) => {},
-    removeAttribute: (attr: string) => {},
+    getAttribute: (_attr: string) => "",
+    setAttribute: (_attr: string, _value: string) => {},
+    removeAttribute: (_attr: string) => {},
     getBoundingClientRect: () => ({
       width: 0,
       height: 0,
@@ -78,7 +78,7 @@ const mockDocument = {
     }
     return element;
   },
-  getElementById: (id: string) => mockElement("div"),
+  getElementById: (_id: string) => mockElement("div"),
   documentElement: {
     style: {
       transform: "",
@@ -114,16 +114,16 @@ const mockNavigator = {
 const mockWindow = {
   document: mockDocument,
   devicePixelRatio: 1,
-  addEventListener: (type: string, listener: Function) => {},
-  removeEventListener: (type: string, listener: Function) => {},
+  addEventListener: (_type: string, _listener: unknown) => {},
+  removeEventListener: (_type: string, _listener: unknown) => {},
   navigator: mockNavigator,
 };
 
-console.log(global.navigator, globalThis.navigator);
-
 // Replace global objects with mocks
-(global as any).window = mockWindow;
-(global as any).document = mockDocument;
+// @ts-expect-error mockWindow is a mock on different environments
+global["window"] = mockWindow;
+// @ts-expect-error mockDocument is a mock on different environments
+global["document"] = mockDocument;
 if (typeof navigator === "undefined") {
   // @ts-expect-error mockNavigator is a mock on different environments
   globalThis.navigator = mockNavigator;
